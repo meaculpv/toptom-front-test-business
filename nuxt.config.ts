@@ -4,5 +4,16 @@ export default defineNuxtConfig({
   css: ['@/assets/styles/main.scss'],
   modules: [
     '@pinia/nuxt'
-  ]
+  ],
+
+  runtimeConfig: {
+    turnstile: {
+      secretKey: '0x4AAAAAAAJs1mlCddUvC8fIATuSaAqI-Fc'
+    },
+
+    public: {
+      apiBase: 'https://qqfnjewfbgdqnkqncqefberqlfjnjqefnqervnklqfewf.toptom.kz/',
+    }
+  },
+
 })

@@ -13,7 +13,6 @@ const addFavorite = () => {
 <template>
   <div class="product-card">
     <img :src="`/${data.image}.png`" alt="" class="product-card__image">
-
     <div class="product-card__content">
       <h2 class="product-card__title">{{ data.title }}</h2>
       <span class="product-card__price">{{ data.price }} ₸</span>

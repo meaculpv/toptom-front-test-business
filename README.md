@@ -57,4 +57,4 @@ yarn preview
 
 # BACKEND
 
-###### Документация по api расположена по ссылке: `https://toptom-test/test/api`
+###### Документация по api расположена по ссылке: `https://qqfnjewfbgdqnkqncqefberqlfjnjqefnqervnklqfewf.toptom.kz/swagger`

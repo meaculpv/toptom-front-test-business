@@ -1,39 +1,22 @@
 <script setup lang="ts">
-const products = [
-  {
-    id: 0,
-    title: 'asdasd',
-    description: 'asdasd',
-    price: 100,
-    image: 0
-  },
-  {
-    id: 1,
-    title: 'asdasd',
-    description: 'asdasd',
-    price: 100,
-    image: 2
-  },
-  {
-    id: 2,
-    title: 'asdasd',
-    description: 'asdasd',
-    price: 100,
-    image: 1
-  },
-  {
-    id: 3,
-    title: 'asdasd',
-    description: 'asdasd',
-    price: 100,
-    image: 0
-  }
-]
+import {onMounted} from 'vue';
+
+const config = useRuntimeConfig()
+
+const {data: products, pending, refresh} = await useFetch('/products', {
+  baseURL: config.public.apiBase as string,
+  mode: 'no-cors'
+});
+
+onMounted(() => {
+  refresh()
+})
+
 </script>
 
 <template>
-  <ul class="products-list">
-    <ProductsCard v-for="(item, index) of products" :key="index" :data="item"/>
+  <ul v-if="!pending" class="products-list">
+    <ProductsCard  v-for="(item, index) of products" :key="index" :data="item"/>
   </ul>
 </template>
 
@@ -45,6 +28,5 @@ const products = [
   gap: 1.5rem;
   flex-wrap: wrap;
   justify-content: center;
-
 }
 </style>
